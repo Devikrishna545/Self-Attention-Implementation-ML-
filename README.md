@@ -47,12 +47,6 @@ git clone https://github.com/Devikrishna545/Self-Attention-Implementation-ML-.gi
 # Navigate to the project directory
 cd Self-Attention-Implementation-ML-
 
-# Install dependencies (if applicable)
-# pip install -r requirements.txt
-
-# Run the implementation
-# python self_attention.py
-```
 
 ## 🔑 Key Concepts
 
