@@ -1,22 +1,95 @@
 # Self-Attention Implementation (ML)
 
-This repository contains an implementation of self-attention mechanism for machine learning.
+A practical implementation of the self-attention mechanism, a fundamental building block of transformer architectures in modern machine learning.
 
-## About
+## 📖 About
 
-Self-attention is a key component in transformer architectures, allowing models to weigh the importance of different parts of the input when processing sequences.
+Self-attention is a key component in transformer architectures that allows models to weigh the importance of different parts of the input when processing sequences. This mechanism enables the model to focus on relevant information and capture long-range dependencies in data.
 
-## Getting Started
+## 🎯 Project Overview
 
-This was a project to show the implematation of self attention in a sequence of words ."Dream big and work for it" was the sentense and its tokenized as words.Each words were considered as tokens.In self attention these tokens are the input embeddings with 3 features in it.so 6 tokens with 3 features in it makes it as a matrix of 6 X 3 (input embeddings).these vectors were plotted on the 3d graph to analyse the direction and magnitude of the vectors.
+This project demonstrates the implementation of self-attention using a simple example sentence: **"Dream big and work for it"**
 
-then we started calculting the attention score for each words.
-Attention score is the dot product of vectors ,which is a scalar value.Attention score is calculated between the query and every single keys.Here I chose "Big" as the query and each tokens are the "Keys".
+### Implementation Steps
 
-then when we sum up the attention scores ,it will not be equal to 1 ,so we have to normalize these scores .For that we can do simple vanilla normalization and also softmax normalization.Here we chose Tensorflow's Softmax Normalization.After normalization we get the Attention weights which can sum up to get 1 .This shows the percentage of relationwith other vectors from one vector.
+#### 1. **Tokenization**
+- The sentence is tokenized into individual words
+- Each word is treated as a separate token
+- Tokens: `["Dream", "big", "and", "work", "for", "it"]`
 
-Normalization improves the inter operability and also maintain the LLM training stability.
+#### 2. **Attention Score Calculation**
+- Attention scores are computed as the dot product of query and key vectors
+- The dot product produces a scalar value representing the relevance between tokens
+- **Example**: Using "big" as the query vector, we calculate attention scores against all key vectors (each token)
+- This process determines how much attention the query token should pay to each key token
 
-To get the Context Vector , Input embeddings X attention weights gives the context Vectors.
+#### 3. **Normalization**
+- Raw attention scores need to be normalized to sum to 1
+- Two normalization approaches:
+  - **Vanilla normalization**: Simple division by sum
+  - **Softmax normalization**: Exponential normalization (used in this implementation)
+- **Benefits**:
+  - Improves interpretability of attention weights
+  - Maintains LLM training stability
+  - Prevents gradient vanishing/exploding issues
 
-Thus we get Context vectors using self attention.
+#### 4. **Context Vector Generation**
+- Context vectors are computed by: **Input Embeddings × Attention Weights**
+- The result is a weighted combination of input embeddings
+- Each token gets a context-aware representation based on its relationship with other tokens
+
+## 🚀 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/Devikrishna545/Self-Attention-Implementation-ML-.git
+
+# Navigate to the project directory
+cd Self-Attention-Implementation-ML-
+
+# Install dependencies (if applicable)
+# pip install -r requirements.txt
+
+# Run the implementation
+# python self_attention.py
+```
+
+## 🔑 Key Concepts
+
+- **Query (Q)**: The token we're currently focusing on
+- **Key (K)**: All tokens that might be relevant to the query
+- **Value (V)**: The actual information we want to extract
+- **Attention Scores**: Dot product of Q and K, measuring relevance
+- **Attention Weights**: Normalized attention scores (sum to 1)
+- **Context Vector**: Weighted sum of values based on attention weights
+
+## 📊 Mathematical Formulation
+
+```
+Attention(Q, K, V) = softmax(Q · K^T / √d_k) · V
+```
+
+Where:
+- `Q · K^T` computes attention scores
+- `√d_k` is the scaling factor (dimension of key vectors)
+- `softmax` normalizes the scores
+- Multiplication with `V` produces context vectors
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 📧 Contact
+
+**Devikrishna545** - [@Devikrishna545](https://github.com/Devikrishna545)
+
+Project Link: [https://github.com/Devikrishna545/Self-Attention-Implementation-ML-](https://github.com/Devikrishna545/Self-Attention-Implementation-ML-)
+
+---
+
+⭐ If you found this helpful, please consider giving it a star!
+```
