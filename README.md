@@ -47,7 +47,7 @@ git clone https://github.com/Devikrishna545/Self-Attention-Implementation-ML-.gi
 # Navigate to the project directory
 cd Self-Attention-Implementation-ML-
 
-
+```
 ## 🔑 Key Concepts
 
 - **Query (Q)**: The token we're currently focusing on
